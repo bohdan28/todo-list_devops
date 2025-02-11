@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+</head>
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="{% static 'background.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <h1>TODO-LIST</h1>
+        <div class="tasks">
+            {% for task in tasks %}
+                <div {% if task.is_done %}class="taskcompleted"{% else %}class="taskpending"{% endif %} >
+                {{ task.content }}
+                </div>
+            {% endfor %}
+        </div>
+        <form method="POST" class="input-container">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">&#43;</button>
+        </form>
+    </div>
+</body>
+</html>
