@@ -134,3 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'todolist', 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SCRF_TRUSTED_ORIGIN = ['https://*.rublevskyi.life']
